@@ -8,6 +8,7 @@
   "designSkill": "impeccable",
   "isFracteraArchitecture": true,
   "framework": "next",
+  "elementType": "native",
   "visibility": "node",
   "calls": [
     "auth",

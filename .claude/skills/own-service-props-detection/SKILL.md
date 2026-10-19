@@ -33,6 +33,7 @@ it with `head`. `npm run passport` without a mode is the whole passport (every p
 | who you are | `id` (never changes), `name` (may change), `version`, `commit`, `created`, `updated`, `github` |
 | where you live | `addresses` (internet, own domain, project, your public routes), `host` (home or server, how the node is reached, tunnel, isolation), `machine` (port, local address, folder, status) |
 | what you are for | `shortDescription`, `longDescription`, `accepts`, `returns`, `skills` |
+| which kind of element you are | `elementType` — `native` — a root element of every node, added only from the Fractera repository (`fractera-native-item-starter`), never sold |
 | who sees you | `visibility` — `node`: a native element is seen only inside its node |
 | your ties | `calls` (who you cooperate with), `calledBy` (who has called you) |
 
