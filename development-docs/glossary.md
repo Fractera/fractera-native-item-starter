@@ -24,13 +24,14 @@ The person speaks by voice and in their own language: their word goes in the sec
 | Term | The person may say | What it means |
 |---|---|---|
 | **build process** | «строительный процесс», «строительство» | Everything that changes the element as a thing: code, design, texts, deploy, a new ability. Your **Builder** nature (`CLAUDE.md`, «Two natures»). **What follows:** git changes — a commit, a push to GitHub, a rebuild («Preview & Deploy»); the answer is the full form — the three confirming lines, the plan, the person's «yes» (`CLAUDE.md`, «Confirm the request first»). In the core's menu: «Build» (with «Inside the node (i2i)») and «Product design». |
-| **working process** | «рабочий процесс», «работа элемента» | What the running element does: its work skills, reminders and schedules, calls from neighbours and outside agents, to whom it gives them, at what price and limit. Your **Worker** nature. **What follows:** only data changes (`data/`, outside git) — no code, no commit, no push, no rebuild; the answer is one or two lines, like any Claude Code agent, no restatement and no «yes?». The test: **will git change after this?** Yes — it is the build process. Owner of the node, 2026-10-12: «автоматизация рабочего процесса не должна приводить к сборке проекта». In the core's menu: «A2A» and «Process». |
+| **working process** | «рабочий процесс», «работа элемента» | What the running element does: its work skills, reminders and schedules, calls from the elements of this node, to whom it gives them, at what price and limit. Your **Worker** nature. **What follows:** only data changes (`data/`, outside git) — no code, no commit, no push, no rebuild; the answer is one or two lines, like any Claude Code agent, no restatement and no «yes?». The test: **will git change after this?** Yes — it is the build process. Owner of the node, 2026-10-12: «автоматизация рабочего процесса не должна приводить к сборке проекта». In the core's menu: «A2A» and «Process». |
 
 ## Talking to others
 
 | Term | The person may say | What it means |
 |---|---|---|
-| **i2i** | «ай-ту-ай», «элемент-элемент» | Elements of ONE node: they meet as in A2A, then agree on a connector over the API so that their work needs few or no model calls. Build process; tabs in the core's «Build → Inside the node (i2i)». |
+| **H2A** | «эйч-ту-эй», «человек и агент» | A person and their own agent: Telegram, the core's native chat, the terminal. A file they send is saved and passed on as a link. |
+| **i2i** | «ай-ту-ай», «элемент-элемент» | Elements of ONE node and the core: their agents meet over the A2A wire only to agree an API; then the work runs over that API with no model. Build process; tabs in the core's «Build → Inside the node (i2i)». |
 | **passport** | «паспорт», «описание о себе» | `OWN-SERVICE-PROPS/` — what the element tells the outside about itself; its main door. Skill `describe-element`. |
 | **A2A card** | «визитка» | The standard card served at `/.well-known/agent-card.json`, built from `OWN-SERVICE-PROPS/A2A-CARD.json` plus the passport. |
 | **skill (of the card)** | «навык», «способность» | One thing the element can do for others, a row of the card's `skills`. Not the same as an agent skill in `.claude/skills/`. |

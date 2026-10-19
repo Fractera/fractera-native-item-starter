@@ -7,7 +7,8 @@ Two files that describe the element live in the root, not here — programs read
 - `CLAUDE.md` — the agent's instruction (Claude Code loads it by itself).
 - `OWN-SERVICE-PROPS/` — the passport (main door), its A2A card `A2A-CARD.json`; `NODE-CONTRACT.json` — what the node needs; integrations and cron.
 
-Orders — work the element does for others over A2A — are not development and are not kept here.
+A native element takes no orders from other nodes (it has no a2a); work it does for its neighbours runs over agreed i2i APIs and
+is not development either — none of it is kept here.
 
 **Every document below exists from the element's birth** — `npm run check:dev-docs` fails when one is missing. A new element
 is born with two kinds of content here: **useful notes** that hold from day one (`glossary.md`, `anti-patterns.md`) and **empty
