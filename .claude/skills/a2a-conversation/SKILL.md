@@ -1,6 +1,6 @@
 ---
 name: a2a-conversation
-description: Both natures (every element). Talk to the agents of this node's elements with one command, `npm run a2a` (Google's A2A wire) — i2i, to agree an API: find who can do a job, read its card and passport, send a task or call its code skill, follow it, and answer tasks sent to you. Use it when a need is not covered by a connector you already have — the connectors with the core, auth, data, config and design are built and used in code, never through their agents; whenever a line «A2A task <id> from <who>…» is pasted into your terminal; and whenever the person comments on a conversation with a neighbour in Telegram or the terminal.
+description: Both natures (every element). The commands of the A2A wire, `npm run a2a` — find who can do a job, read its card and passport, send a task or call a code skill, follow it, answer tasks sent to you. A native element uses the wire only for i2i with the elements of this node, to agree an API (skill use-i2i). Load it when you need one of these commands, whenever a line «A2A task <id> from <who>…» is pasted into your terminal, and whenever the person comments on a conversation with a neighbour.
 ---
 
 > **Three protocols (owner 2026-10-11).** Talking to an element of THIS node is **i2i**: meet it as A2A describes below, and aim

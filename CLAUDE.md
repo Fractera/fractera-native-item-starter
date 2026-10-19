@@ -113,7 +113,7 @@ builder knowledge for a job spends the person's subscription and memory, and inv
 1. `own-service-props-detection` — who you are: `npm run passport -- me`. The passport is your main door; it describes only your
    working nature, because building is innate to every element born from the starter.
 2. `node-elements-detection` — the other elements, in short: `npm run passport -- project`. Anything you do not do yourself goes to a
-   neighbour over i2i (section «Protocols», skill `a2a-conversation`): the node's summary → a candidate's full passport → agree on an
+   neighbour over i2i (skill `use-i2i`; the commands — `a2a-conversation`): the node's summary → a candidate's full passport → agree on an
    API, the other side builds it, then the work runs over it with no model.
 <!-- PROOF 1 END -->
 
@@ -122,7 +122,7 @@ builder knowledge for a job spends the person's subscription and memory, and inv
 
 | Nature | Skills |
 |---|---|
-| both — building or a job | `a2a-conversation`, `humanizer` (vendored, `SOURCE.md`: every text a person reads, section «Texts»), `computer-off`, `local-node`, `node-elements-detection`, `own-service-props-detection`, `telegram-channel` (your person writes to you from Telegram, right into this terminal) |
+| both — building or a job | `use-protocols` (the index of the five protocols), `use-i2i`, `use-h2a` (with the media rule), `a2a-conversation`, `humanizer` (vendored, `SOURCE.md`: every text a person reads, section «Texts»), `computer-off`, `local-node`, `node-elements-detection`, `own-service-props-detection`, `telegram-channel` (your person writes to you from Telegram, right into this terminal) |
 | builder | `build-widget`, `cloudflare-connection`, `connect-external-service`, `connect-google-analytics`, `connect-own-domain`, `custom-design` (the gate to `design-taste-frontend` and `impeccable`), `deploy-element`, `describe-element`, `github-element`, `github-repositories`, `own-domain-sign-in`, `page-snippet`, `passport-description`, `product-quiz` (the product in product words before code; every «and also I need…» goes through it), `project-origin`, `self-review`, `soft-navigation`, `temporary-domain`, `use-auth`, `use-development-docs`, `use-element-tree`, `use-highlight`, `use-languages`, `use-machine-copy`, `use-messenger` (the gate to `ai-elements`), `use-page-tree`, `use-shadcn` (the gate to `shadcn`), `use-site-menu`, `use-tests-before-dev-finish`, `use-tools`, `use-typography` |
 | worker | `schedule-cron-automations-calendar-reminders-recurring-and-one-time-tasks` (reminders and schedules: data in `data/cron.json`, no commit, no rebuild; the core draws the calendar) — a work skill offered to other agents also goes into the passport |
 | builder, vendored (`SOURCE.md`) | `ai-elements`, `copy-editing`, `copywriting`, `design-taste-frontend`, `impeccable`, `shadcn` |
@@ -148,16 +148,12 @@ Samples: `npm run test:a2a-guard`.
 
 ## Protocols — how you talk and to whom
 
-A native element has two of Fractera's five protocols of its own (owner 2026-10-11, 2026-10-19); every other text points here.
-Asked «which protocol», name ours first, then the technology under it — e.g. auth and data: i2i, ready APIs over HTTP and JSON; the A2A wire only to agree a new API.
-- **H2A** — your person and you: Telegram, the core's native chat, your terminal.
-- **i2i** — the elements of this node and the core. The connectors with the core, auth, data, config and design are already
-  built — use them in code, never ask their agents. For a new need the agents talk (the A2A wire, `npm run a2a`) only to agree an
-  API — a door or a code skill; from then on the work runs over it with no model. A further need — ask again: the provider grows
-  its API and its description. Building.
-- **a2a, f2f and H2H are not yours** — a native element is never sold, never exchanged and never joins an outside network.
-- **Media** — any file (voice, photo, video) goes to storage: on this machine `POST /api/media/upload` answers
-  `/api/media/<id>/file`; pass that link, never the file.
+Fractera has five protocols of its own (owner 2026-10-11, 2026-10-19); a native element has two: **H2A** — your person and you;
+**i2i** — the elements of this node and the core agree an API once, then work without a model. a2a, f2f and H2H are not yours: a
+native element is never sold, never exchanged and never joins an outside network. The index is skill `use-protocols`; details —
+`use-h2a`, `use-i2i`.
+- Asked how you work with others — answer from `npm run passport -- me` (`links`), our protocol first; never from your code.
+- A file travels as a link, never as the file (`use-h2a`, «Media»).
 - The passport keeps `messengers: { h2a: true, h2h: false, a2a: false }` and `visibility: node`; change them only when the person asks.
 
 ## Design skill
