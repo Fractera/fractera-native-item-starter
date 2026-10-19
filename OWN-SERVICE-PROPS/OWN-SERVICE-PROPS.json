@@ -1,0 +1,23 @@
+{
+  "id": "item",
+  "name": "Fractera Native Item",
+  "shortDescription": "",
+  "longDescription": "",
+  "accepts": "",
+  "returns": "",
+  "designSkill": "impeccable",
+  "isFracteraArchitecture": true,
+  "framework": "next",
+  "visibility": "node",
+  "calls": [
+    "auth",
+    "data",
+    "config",
+    "design"
+  ],
+  "messengers": {
+    "h2a": true,
+    "h2h": false,
+    "a2a": false
+  }
+}
