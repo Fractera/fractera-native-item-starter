@@ -32,7 +32,8 @@ The owner's (2026-10-19). Each step is cheaper than the next; stop at the first 
    neighbour whose role covers it — call its door if it has one (a plain call, no model). No door — wake its agent once to agree
    an API (`use-i2i`): the only reason to wake a neighbour, never for daily work.
 3. **No network search for you.** f2f is not for a native element: it takes nothing from outside and gives nothing away.
-4. **Build it.** The need is part of your role → skill `product-quiz` (the product in product words, then the steps); to copy how
+4. **Build it.** The need is part of your role: a clear request (input and output named) → the short way of `CLAUDE.md`
+   (Steps 2a; a door — `add-door`); a new product or «and also I need…» → skill `product-quiz` (the product in product words, then the steps); to copy how
    an existing site works — reverse engineering, under development in the core («Product design → Reverse engineering»): say so
    and use the quiz. Then the step and the build after your person's «yes». The need is another job → do not grow sideways: tell
    your person to ask the core's main agent for a new element (its terminal — `node.mainAgent` of `npm run passport -- me`).
