@@ -46,7 +46,14 @@ Name the problem in the words of the one who has it, then the solution. Use the 
 synonyms; avoid our internal terms (WEB4 ITEM, node, element) unless the reader needs them. Concrete nouns and verbs, no slogans.
 No personal data — the file is public.
 
-## Before writing
+## Before writing — and the core must get it
 
-Show the person the texts in the terminal and ask «save?». Write the file only after «yes», keep valid JSON, commit with a message
-naming the passport, and tell the person to reload the passport page.
+The passport texts are published (`CLAUDE.md`, section «Texts»). Write them into the passport, run them through `humanizer`, then
+`npm run check:passport` and fix everything red. Show the person the texts in the terminal and ask «save?». After «yes»: commit with a
+message naming the passport, then `npm run describe:publish` — it must print `DESCRIBE_OK`; on `DESCRIBE_FAILED` fix what it names and
+run it again. After «no»: put the passport back (`git checkout -- OWN-SERVICE-PROPS/OWN-SERVICE-PROPS.json`) or change it as they say.
+
+Only `describe:publish` hands the texts to the node's core — its registry, the passport page and the discovery alarm on this element's
+home page. Without it the texts stay in this folder and the core keeps saying «no description» (node step 551-8: a request in the
+person's own words came here and stopped at the commit). A capability card description (section above) ends with its commit: the core
+reads that field from the passport file itself.
