@@ -5,7 +5,7 @@ The person's own words stay verbatim in quotes, with an English gist next to the
 
 Two files that describe the element live in the root, not here — programs read them by that path:
 - `CLAUDE.md` — the agent's instruction (Claude Code loads it by itself).
-- `OWN-SERVICE-PROPS/` — the passport (main door), its A2A card `A2A-CARD.json`; `NODE-CONTRACT.json` — what the node needs; integrations and cron.
+- `OWN-SERVICE-PROPS/` — the passport (main door), its A2A card `A2A-CARD.json`; `NODE-CONTRACT.json` — what the node needs.
 
 A native element takes no orders from other nodes (it has no a2a); work it does for its neighbours runs over agreed i2i APIs and
 is not development either — none of it is kept here.

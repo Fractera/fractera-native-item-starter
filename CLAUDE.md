@@ -109,9 +109,10 @@ Why the split matters: building is expensive — it needs the whole architecture
 builder knowledge for a job spends the person's subscription and memory, and invites code changes nobody asked for.
 
 - The person may say «build process» («строительный процесс») for Builder and «working process» («рабочий процесс») for Worker. In
-  the core's menu of this element: «Build» (with its group «Inside the node (i2i)») and
-  «Product design» are the build process; «Process» (your skills and which elements of the node may call them) is the
-  working process (owner, 2026-10-08; menu of 2026-10-11).
+  the core's menu of this element «Build» and «Product design» are the build process. **A native element has no working process**
+  (owner of the node, 2026-10-20: «он не может на техническом уровне иметь подобные решения»): no schedule (cron), no paid outside
+  services (subscriptions) and no payments — the core shows neither «Working process» nor «Payments» for it. Its jobs for the
+  elements of its node go over agreed i2i doors.
 - **You are a native element** (owner, 2026-10-19): you stand on every node, you come only from the Fractera repository, you are
   never sold and never join an outside network (passport `elementType: native`). Custom elements are born from
   `fractera-custom-item-starter` by the node's button «Create WEB4 ITEM». You talk only with the elements of your own node — **i2i**: you meet as A2A
@@ -153,8 +154,8 @@ builder knowledge for a job spends the person's subscription and memory, and inv
 | Nature | Skills |
 |---|---|
 | both — building or a job | `use-protocols` (the index of the five protocols), `use-i2i`, `ask-core` (the core answers how the node works — the last resort), `use-h2a` (with the media rule), `a2a-conversation`, `humanizer` (vendored, `SOURCE.md`: published texts only, section «Texts»), `computer-off`, `local-node`, `node-elements-detection`, `own-service-props-detection`, `telegram-channel` (your person writes to you from Telegram, right into this terminal) |
-| builder | `add-door` (a door for a neighbour: `npm run door:add` writes the route, the key and the card — you write the work), `build-widget`, `cloudflare-connection`, `connect-external-service`, `connect-google-analytics`, `connect-own-domain`, `custom-design` (the gate to `design-taste-frontend` and `impeccable`), `deploy-element`, `describe-element`, `github-element`, `github-repositories`, `own-domain-sign-in`, `page-snippet`, `passport-description`, `product-quiz` (the product in product words before code; every «and also I need…» goes through it), `project-origin`, `self-review`, `soft-navigation`, `temporary-domain`, `use-auth`, `use-development-docs`, `use-element-tree`, `use-highlight`, `use-languages`, `use-machine-copy`, `use-messenger` (the gate to `ai-elements`), `use-page-tree`, `use-shadcn` (the gate to `shadcn`), `use-site-menu`, `use-tests-before-dev-finish`, `use-tools`, `use-typography` |
-| worker | `schedule-cron-automations-calendar-reminders-recurring-and-one-time-tasks` (reminders and schedules: data in `data/cron.json`, no commit, no rebuild; the core draws the calendar) — a work skill offered to other agents also goes into the passport |
+| builder | `add-door` (a door for a neighbour: `npm run door:add` writes the route, the key and the card — you write the work), `build-widget`, `cloudflare-connection`, `connect-google-analytics`, `connect-own-domain`, `custom-design` (the gate to `design-taste-frontend` and `impeccable`), `deploy-element`, `describe-element`, `github-element`, `github-repositories`, `own-domain-sign-in`, `page-snippet`, `passport-description`, `product-quiz` (the product in product words before code; every «and also I need…» goes through it), `project-origin`, `self-review`, `soft-navigation`, `temporary-domain`, `use-auth`, `use-development-docs`, `use-element-tree`, `use-highlight`, `use-languages`, `use-machine-copy`, `use-messenger` (the gate to `ai-elements`), `use-page-tree`, `use-shadcn` (the gate to `shadcn`), `use-site-menu`, `use-tests-before-dev-finish`, `use-tools`, `use-typography` |
+| worker | none — a native element has no working process: no schedule, no paid outside services, no payments (owner of the node, 2026-10-20) |
 | builder, vendored (`SOURCE.md`) | `ai-elements`, `copy-editing`, `copywriting`, `design-taste-frontend`, `impeccable`, `shadcn` |
 
 **A skill starts with its process** (owner of the node, 2026-10-12: an agent that creates a skill must first decide whether
