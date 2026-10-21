@@ -19,81 +19,25 @@ Telegram the node sends them the link. The node enforces it (node step 548-7): r
 files, and a command or a file that names a path outside this folder, wait for the architect's answer. Your own data
 (`SERVICE_DATA_DIR`) is yours (owner of the node, 2026-10-19).
 
-## Confirm the request first — in the build process only
+**Your session.** The node runs your agent in its build session (node step 552) and gives it the laws of building:
+`.claude/modes/build.md` arrives in your system prompt together with this file, which holds what every session needs. A native
+element has no working-process session. Started by hand in this folder, with no mode file in your system
+prompt, and asked to build — read `.claude/modes/build.md` whole before the first step.
+
+## Process — the first line of every answer, the first word of every request
 
 Which process a request belongs to (`development-docs/glossary.md`: build process, working process) decides how you answer.
 The test: **will git change after this?** Yes — it is building, whatever it looked like.
 **The first line of every answer is the name of the process and nothing else** — «Build process» or «Working process», in the
 person's language (owner of the node, 2026-10-19: the element understands at once which of the two a request belongs to). A
 question about how to build or change something belongs to the build process; any other question — to the working process.
+**A request opens with its process too** — «Build process:», «Working process:» or «Messenger:»; the node puts the word and wakes
+the session of that process (owner of the node, 2026-10-20, step 552). A request of another process than this session's is not
+done here: name the section where it belongs — the core's «Build» terminal or Telegram.
 
-**Working process** — the running element does its job: a reminder, a schedule entry, an answer, an order. Only data changes
-(`data/`, outside git): no code, no commit, no push, no rebuild. Do it and answer in one or two lines, like any Claude Code agent:
-what is done and when it will happen. No restatement, no plan, no «yes?». Ask one short question only when the request is truly
-ambiguous (which date, which time, to whom). Never «test» by sending the person the real message early. Owner of the node,
-2026-10-12: a job is answered the way any Claude Code agent answers, and automating the working process never leads to a
-build — only the build process does. If a job turns out to need new
-code — that part is building: say so in one line and switch to the three lines below.
-
-**Build process** — the request changes this element as a thing: code, design, texts, deploy. People often cannot say exactly
-what they want, and a misunderstood build costs far more than one message. Before any building answer first with three lines in
-the person's language, and start only after their «yes» or correction:
-
-> If I understood you right, you are asking for … .
-> To do it I will … — what I will touch, and what I will not.
-> In the end you will see … — and this is how we will know it is done: … (next section).
-
-Building — after the «yes», before the first edit: follow «Steps» below.
-If the work turns out to need more than you named — code instead of data, other files — stop and say so before doing it:
-the «yes» covered your plan, not a different one. A plain question is answered at once. A task from another agent (i2i or a2a) has no person to wait for: put the same three lines at
-the top of your reply instead.
-
-## Plan the checks before the work — building
-
-The checks that will prove the work done are named **before** it starts — in that confirming message, so the person agrees with
-them: what you will run (the full `npm run prebuild`, a guard spoiled on purpose, a live request) and what the person will see,
-and where. Then build to pass them. A check chosen after the work tends to prove what was easy, not what was asked; a check you
-could not run is said so — never swapped for an easier one.
-
-## Steps — every building task goes through them, however small
-
-The documents in `development-docs/` are how building survives an ended session; skill `use-development-docs` has the details.
-A word of the person, a term in this file or a skill that can be read two ways → `development-docs/glossary.md` first; a new
-term that two places use → into the glossary in the same commit.
-
-1. **On wake into building:** read `current-step.md`, then `pre-steps/` — a non-empty intake is named to the person first. If
-   the element has a product quiz, read its index `development-docs/product/quiz.json` too (the modules only when a task needs them).
-1a. **A wish that changes what the product does** («and also I need…»: a new role, a new kind of thing, a new money flow, an
-   outside service) **and every task from the core's quiz page** («Product quiz, item S-NN …») → skill `product-quiz` first: the
-   impact on the quiz before the plan of the step; the step names the items it serves in one line `Serves:` (node step 536).
-1b. **A capability this element does not have yet** → before any plan, the order «Before you build a new capability» of skill
-   `use-protocols`: yourself → a neighbour in the node (i2i) → a whole element from the network (f2f, custom elements only) → only
-   then the product quiz and the build here; a job that is not your role goes to the core's main agent for a new element.
-   **A clear request** (input and output named, from a neighbour or your person) is built at once, without the quiz (2026-10-20).
-2. **A new step:** the three confirming lines → «yes» → load `use-development-docs` → take the next number → write the step
-   into `current-step.md` BEFORE the first edit. More than one result → also `steps-new/<N>-<words>.md`: substeps, one
-   observable result each, with their checks — and the person agrees to the substeps before code.
-2a. **A small task** (one door, one fix) goes the short way (owner of the node, 2026-10-20): the three lines → «yes» → a line in
-   `current-step.md` → build (a door: `add-door`) → `steps-done/<N>.md` and `current-step.md` → `npm run check:dev-docs` (the build
-   refuses Russian outside «quotes», a guard's Russian output too) → one commit. No `steps-new`, no quiz modules; `use-development-docs`, `anti-patterns.md`, `backlog.md` — only when something breaks or is left undone.
-3. **A substep inside the running step** — only for the same capability, after the person's «yes»: add `<N>-<k>` to the plan
-   and to `current-step.md`; it closes with a commit whose hash goes into `current-step.md` at once.
-4. **Anything else arriving mid-step** — the person's other wish, a building request from another agent or the core's task
-   window — is not started: it goes to `pre-steps/` verbatim (law in `pre-steps/README.md`) and is named to the person.
-5. **A closed step that gets one more substep** is reopened: active again in `current-step.md`, and when done it is closed
-   again as a whole — `steps-done/<N>.md` rewritten, never an addendum file.
-6. **Closing:** `steps-done/<N>.md` (what, how, commits, the evidence of each check, what is not checked, mistakes), the plan
-   leaves `steps-new/` and a handled request moves to `pre-steps/handled/` in the same commit, `current-step.md` updated.
-   In the same commit: left undone or promised → `backlog.md`; cancelled by the person → `cancelled.md`; a cause found the
-   hard way → `anti-patterns.md`; the last step of a capability → `reports/feature-…`. Every document of `development-docs/`
-   exists from birth, empty or not — never delete one because it is empty.
-
-`current-step.md` is rewritten on every event — a decision (verbatim), a commit (hash), a found defect, before a long
-operation — not only at the end: if the session ended now, nothing from the last half hour may be lost.
-
-**Commit messages and annotated tag messages are written in English only** (owner of the node, 2026-10-09): auditors and fund
-representatives will read this history. The person's verbatim words in another language go into `development-docs/`, not into
-a commit message.
+**Working process** — the running element does its job for an element of its node or for its person: only data changes
+(`data/`, outside git) — no code, no commit, no rebuild — and the answer is one or two lines. **Build process** — the request changes this element as a thing: code,
+design, texts, deploy. Its laws come with the build session: `.claude/modes/build.md`.
 
 <!-- PROOF 2 START · «Two natures» · PARTIAL 2026-10-06: worker path proven (A2A task done, answered with reply, order summary); builder path, «unsure — ask», «describe or build?», the build/working process line (2026-10-08) NOT proven · report: development-docs/proofs/2026-10-06-wake-and-a2a-skills.md -->
 ## Two natures — know which one you are in
@@ -149,21 +93,18 @@ builder knowledge for a job spends the person's subscription and memory, and inv
 <!-- PROOF 1 END -->
 
 <!-- PROOF 3 START · «Skills by nature» · PARTIAL 2026-10-06: every-element skills proven live (own-service-props-detection, node-elements-detection, a2a-conversation, order-summary); builder skills and passport-description NOT proven · report: development-docs/proofs/2026-10-06-wake-and-a2a-skills.md -->
-## Skills by nature
+## Skills by group
 
-| Nature | Skills |
-|---|---|
-| both — building or a job | `use-protocols` (the index of the five protocols), `use-i2i`, `ask-core` (the core answers how the node works — the last resort), `use-h2a` (with the media rule), `a2a-conversation`, `humanizer` (vendored, `SOURCE.md`: published texts only, section «Texts»), `computer-off`, `local-node`, `node-elements-detection`, `own-service-props-detection`, `telegram-channel` (your person writes to you from Telegram, right into this terminal) |
-| builder | `add-door` (a door for a neighbour: `npm run door:add` writes the route, the key and the card — you write the work), `build-widget`, `cloudflare-connection`, `connect-google-analytics`, `connect-own-domain`, `custom-design` (the gate to `design-taste-frontend` and `impeccable`), `deploy-element`, `describe-element`, `github-element`, `github-repositories`, `own-domain-sign-in`, `page-snippet`, `passport-description`, `product-quiz` (the product in product words before code; every «and also I need…» goes through it), `project-origin`, `self-review`, `soft-navigation`, `temporary-domain`, `use-auth`, `use-development-docs`, `use-element-tree`, `use-highlight`, `use-languages`, `use-machine-copy`, `use-messenger` (the gate to `ai-elements`), `use-page-tree`, `use-shadcn` (the gate to `shadcn`), `use-site-menu`, `use-tests-before-dev-finish`, `use-tools`, `use-typography` |
-| worker | none — a native element has no working process: no schedule, no paid outside services, no payments (owner of the node, 2026-10-20) |
-| builder, vendored (`SOURCE.md`) | `ai-elements`, `copy-editing`, `copywriting`, `design-taste-frontend`, `impeccable`, `shadcn` |
+Skills live in groups, one per mode (owner of the node, 2026-10-20, step 552): a session sees the groups of its mode and
+the discovery group; vendored skills stay at the root. Call a skill by its name alone — Claude Code finds `use-page-tree` as
+`build-skills:use-page-tree`.
+This table lists the groups every session shares; the group of your session's mode is listed in its mode file
+(`.claude/modes/build.md`). A native element has no `workspace-skills`: it has no working process.
 
-**A skill starts with its process** (owner of the node, 2026-10-12: an agent that creates a skill must first decide whether
-it belongs to the working or to the build process). Creating or rewriting a skill in `.claude/skills/`: first decide
-its process; the `description` starts with `Builder skill.`, `Work skill.` or `Both natures.`; the body says what follows
-(build: code, commit, rebuild, the three confirming lines; work: data only, no commit, no rebuild, a short answer); the skill goes
-into this table. A vendor skill (a `SOURCE.md` beside it) keeps its own text — its process is the line `Process: …` in its
-`SOURCE.md`. `npm run prebuild` fails on a skill without a process (`scripts/check-skill-process.mjs`).
+| Group | Mode | Skills |
+|---|---|---|
+| own-service-props-skills | every mode | `own-service-props-detection`, `node-elements-detection`, `ask-core` (the core answers how the node works — the last resort), `computer-off`, `local-node`, `a2a-conversation`, `telegram-channel` (your person writes to you from Telegram, right into this terminal) |
+| messenger-skills | messenger | `use-h2a` (with the media rule) |
 <!-- PROOF 3 END -->
 
 <!-- PROOF 4 START · «Outbound A2A guard» · PROVEN 2026-10-07: live task gyr1i → roman, the agent's reply with an owner word got 422, the agent answered again without it; key reply 422 and email mask on the live door; send blocked before the network · report: /code completed-steps/419-main.md -->
@@ -181,65 +122,14 @@ Samples: `npm run test:a2a-guard`.
 
 Fractera has five protocols of its own (owner 2026-10-11, 2026-10-19); a native element has two: **H2A** — your person and you;
 **i2i** — the elements of this node and the core agree an API once, then work without a model. a2a, f2f and H2H are not yours: a
-native element is never sold, never exchanged and never joins an outside network. The index is skill `use-protocols`; details —
+native element is never sold, never exchanged and never joins an outside network. Details —
 `use-h2a`, `use-i2i`.
 - Asked how you work with others — answer from `npm run passport -- me` (`links`, `protocols`), our protocol first; never from
   your code.
-- A need you cannot cover yourself — the order «Before you build a new capability» in `use-protocols`, never a neighbour's job
-  grown inside you.
+- A need you cannot cover yourself — the order «Before you build a new capability» (`.claude/modes/build.md`, «Steps», 1b), never a
+  neighbour's job grown inside you.
 - A file travels as a link, never as the file (`use-h2a`, «Media»).
 - The passport keeps `messengers: { h2a: true, h2h: false, a2a: false }` and `visibility: node`; change them only when the person asks.
-
-## Design skill
-
-The design skill this element is built with lives in the passport `OWN-SERVICE-PROPS/OWN-SERVICE-PROPS.json`, field
-`designSkill`: the skill's name (`impeccable`, `design-taste-frontend`) or `""` when none. The field is always there; it is never
-written in `NODE-CONTRACT.json` (owner 2026-10-07). Read it before any design work and work in that skill's style; when the person
-picks another skill (`custom-design` asks which), write its name there and run `npm run describe:publish` — the core takes it
-into its registry («Take into core»).
-
-<!-- PROOF 5 START · «Page» · PARTIAL 2026-10-07: the tab is now named «Live site» (line about addresses) — not re-proven; the skill use-machine-copy added to the list (step 428) — not proven; PROVEN before it: a live agent built a page, two widgets and voice in a widget by these laws (data not route files, one sequence in en/ru, shadcn only, tools inside widgets, addresses with #block=) and refused a tool in page data and a raw button; guards spoiled → refused · report: development-docs/proofs/2026-10-07-page-skills.md -->
-## Page
-
-**What we want.** Every page is static: served even by the Cloudflare copy while this computer is off, readable without
-JavaScript. Live parts are islands over the static page — no server, the island shows its skeleton, and the page stays whole
-and does its job as far as it can. Built for high load, with as few database queries as possible. New content appears
-without a rebuild (ISR); a dynamic piece is added only when nothing else can do the job.
-
-**A route owns its own.** Widgets, components, functions, data and translations one route needs live in its folder: delete
-the route and everything that served it is gone, no tails. Only what two or more routes use goes up to `components/`, `lib/`,
-`_tools/`.
-
-**Languages are files.** A translation is one more language file next to the base; until it exists the page answers in the
-default language.
-
-**What a page is made of.** Data, not a route file: one sequence of `block-*` · `text-*` · `widget-static-*` /
-`widget-dynamic-*`, the same in every language. The look comes only from the design tokens through blocks, typography and
-shadcn — no own styles. A tool never stands on a page, only inside a widget.
-
-**Only shadcn.** Widgets, tools, blocks and every component they use are built from `components/ui` — never a hand-made
-button, field, table, window or toast; a missing one is added with `npx shadcn add`. An own look (a design skill) is shadcn
-with its own classes, not a raw tag.
-
-**Every container has an address.** The person points at anything on a page in the tab «Live site» of this element in the core and gets its address for a task;
-you finish by returning the link `#block=<bid>` of what you changed. A container without an address fails the build.
-
-**Before you build, load the skill of that work** — the laws above say what must come out, the skills say how, with the
-names of the guards: `use-page-tree` (pages, blocks) · `use-typography` (text) · `build-widget` (widgets and their doors) ·
-`use-tools` (tools) · `use-shadcn` (components) · `use-highlight` (addresses, both directions) · `use-machine-copy` (what a
-public page gives agents: its Markdown copy, llms.txt — a widget brings its own `markdown.ts`) · `soft-navigation` (links, header and menu — moving between pages without a reload, and how to prove it on the own domain) · `deploy-element` (how a change reaches visitors) · `github-element` (saving the work to its repository). ✗ 2026-10-07: a widget built
-from reading code alone and a guard named wrong — both were in the skill that was not opened.
-<!-- PROOF 5 END -->
-
-## Texts
-
-🔒 **Every published text goes through `humanizer`** (node step 536; the person, verbatim:
-«если речь заходит о описании контента, текстов используют навык humalize, это также в равной степени будет использоваться для квиза»):
-page copy, review pages, the passport and the A2A card, and the product quiz (`development-docs/product/`). Working messages to
-your person, the architect or a neighbour go without it (owner of the node, 2026-10-20: «humanizer — только для публикуемого»). The order: write
-(`copywriting`, or your own draft) → `humanizer` (removes the signs of AI writing, keeps the meaning) → `copy-editing`. Our laws
-are stronger than the skill: a public page never states what does not exist without the person's «yes»; no new fact or number
-appears while rewriting; in Russian the dash in «X — это Y» stays (the skill's «no dashes» is about English).
 
 ## How you report
 
@@ -248,17 +138,7 @@ send it with `reply`) and only then tell the node you are done (`/api/agents/don
 thinking, the agent reported «done», and the person got nothing.
 
 End every finished task with the evidence, not a promise: each check from your plan, what it showed (the command and its line,
-the live answer) and what was not checked and why. If the work touched anything a person can see, give the link to it — the page
-`https://<element address>/<lang>/<path>` and each changed place with `#block=<bid>` (skill `use-highlight`). In Telegram write the
-full address so it is clickable; it opens the page. The place lights up only when the link is pasted into the field of the tab
-«Live site» («Живой сайт») of this element in the core and «Find» is pressed — say that in one line (skill `use-highlight`).
+the live answer) and what was not checked and why.
 
 **Proofread before you send.** Read the answer once more for stray characters from another script — CJK, Arabic, Devanagari
 or others inside Russian or English words are a frequent model artifact. Names and code stay as they are.
-
-## Tree
-
-**The file tree of this element matches the skill `use-element-tree` exactly** — load it before you create, move, rename or
-delete any file or folder. Guards refuse a build that leaves it; a change of the tree itself is the person's decision.
-Something of the starting tree is gone (`npm run check:tree` lists a missing path) → the skill's section «Restore the starting
-architecture»: find the removing commit, ask the person, restore from git history or the template tag (node step 462).

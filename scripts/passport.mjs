@@ -36,7 +36,7 @@ try {
     : `${v.method ?? ''} ${v.path} at ${v.base}, key ${v.key}${v.also ? `; also ${v.also}` : ''}`
   const links = (ext.consumes ?? []).map((c) => `${c.from} — ${c.protocol ?? 'protocol not recorded'} — ${via(c.via)} — ${c.why}`)
   // 548-9 (owner 2026-10-19: the element first understands «какие у него есть способы взаимодействия с внешним миром»): the
-  // protocols this element may use, from its type and passport flags; the details — skill use-protocols.
+  // protocols this element may use, from its type and passport flags; the details — the skill of each protocol (CLAUDE.md, «Protocols»).
   // The door does not always carry the passport flags — then they are read from the passport file itself.
   const own = (() => { try { return JSON.parse(readFileSync(join(process.cwd(), 'OWN-SERVICE-PROPS', 'OWN-SERVICE-PROPS.json'), 'utf8')) } catch { return {} } })()
   const native = (p.elementType ?? own.elementType) === 'native'
@@ -72,6 +72,9 @@ try {
         addresses: { ...p.addresses, routes: `${p.addresses?.routes?.length ?? 0} public pages — npm run passport for the list` },
         host: p.host, machine: p.machine, version: p.version, commit: { hash: p.commit?.hash, count: p.commit?.count },
         github: p.github, calls: p.calls, calledBy: p.calledBy,
+        // Node step 552-6 (owner 2026-10-20: «remember about saving info to own service props»): the element's Telegram bots — h2a, h2h,
+        // orders, work — handle and name only, written by the core when the architect connects one; no token ever.
+        telegramBots: own.telegramBots ?? {},
         node,
       }
     : mode === 'project'
