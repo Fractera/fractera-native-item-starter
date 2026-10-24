@@ -43,7 +43,8 @@ term that two places use → into the glossary in the same commit.
    **a clear request** (input and output named, from a neighbour or your person) at once, the short way (2a), without the quiz
    (2026-10-20); a new product or «and also I need…» —
    `product-quiz`; copying how an existing site works — reverse engineering is under development in the core: say so and use the
-   quiz. Not your role → the core's main agent makes a new element (its terminal — `node.mainAgent` of the passport).
+   quiz. Not your role and no neighbour does it → `npm run need -- "<what you need>"` (skill `need-capability`, node step 589): the core
+   records it and its main agent finds the owner by the cards, or asks the architect to build it; the answer comes into your input.
 2. **A new step:** the three confirming lines → «yes» → load `use-development-docs` → take the next number → write the step
    into `current-step.md` BEFORE the first edit. More than one result → also `steps-new/<N>-<words>.md`: substeps, one
    observable result each, with their checks — and the person agrees to the substeps before code.
