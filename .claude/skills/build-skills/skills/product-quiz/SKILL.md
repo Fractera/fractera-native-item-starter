@@ -30,8 +30,10 @@ feature affects).
 Two kinds of file, both JSON, so the core's page and `npm run check:product` read them the same way:
 
 - `quiz.json` — `vision` {text, status}, `actors` [{id `A-NN`, name, text}], `modules` (the order of the module files),
-  `openQuestions` [{id `Q-NN`, text, about: item ids}], `notNow` [{id `N-NN`, text}], `slices` [{id `L-NN`, name, items}],
-  `decisions` [{date, said (the person's words verbatim, in «…»), gist (English)}].
+  `openQuestions` [{id `Q-NN`, text, about: item ids}], `notNow` [{id `N-NN`, text}], `stages` [{`n` 0, 1, 2… in order, `name`,
+  `works` (what works on its own after this stage), `items` (the items it serves), `ready` (an observable sign that it is done),
+  `status`, `confirmed`, `done` {date, said} — the person's words that the stage works}], `decisions` [{date, said (the person's
+  words verbatim, in «…»), gist (English)}]. Older quizzes have `slices` [{id `L-NN`, name, items}] — they are read as stages.
 - `modules/<slug>.json` — {slug, title, text, items}. An item: `id` (`S-NN` scenario · `R-NN` rule · `E-NN` entity), `kind`,
   `title`, `text`, `actor` (scenarios), `acceptance` (an observable fact: «the list narrows when a word is typed»), `dependsOn`
   (item ids), `status` (`draft` · `confirmed`), `confirmed` {date, said} when confirmed, `builtBefore` only for work done before
@@ -56,7 +58,7 @@ a script, the code or another skill to learn it — `npm run check:product` name
 as `quiz.json`; module files come with the first scenarios:
 
 ```json
-{ "vision": { "text": "…", "status": "draft" }, "actors": [], "modules": [], "openQuestions": [], "notNow": [], "slices": [], "decisions": [] }
+{ "vision": { "text": "…", "status": "draft" }, "actors": [], "modules": [], "openQuestions": [], "notNow": [], "stages": [], "decisions": [] }
 ```
 
 ✗ 2026-10-20 (node step 548-14): the first session of a new element took 11 model requests and 850 thousand tokens — it read its
@@ -85,16 +87,22 @@ The test is one question: **does it change what the product does for someone?** 
 
 ## 3. Deep planning — the interview
 
-1. **Ask for the strongest model first.** The interview and the impact analysis are rare and expensive in meaning. Say in one line:
-   «This part needs deep thinking: please switch me to the strongest model your plan gives (`/model`) before we start.» Recording
-   statuses later needs no switch.
+1. **The strongest model and the deepest thinking.** The build session runs on the strongest model of the subscription (node step
+   570). Never ask the person to switch the model.
 2. **One question at a time.** Never a list of twenty. Lead with your own assumption from the request and the passport
    (`npm run passport -- me`) — never from the code — and ask the person to confirm or correct it: «Here is what I assume: …
    Right?» A question you cannot derive is asked plainly.
 3. **Choices as numbered text** («1 — …, 2 — …, 3 — your own»): the Telegram plugin drops buttons, and text arrives everywhere.
-4. **Order:** the vision (who, what pain, what counts as success) → the actors → the scenarios of the first slice → the rules
-   they need → the open questions → the slice itself («First launch»).
-5. **Stop at the edge of the first slice.** Name what stays for later in `notNow`; do not plan the whole product forward.
+4. **Order:** the vision (who, what pain, what counts as success) → the actors → the scenarios → the rules they need → the open
+   questions → the stages.
+5. **Stages 0 … N, each working on its own — planned on two levels** (owner of the node, 2026-10-23: «планирование каждого
+   следующего этапа на предварительном уровне в общих характеристиках может быть создано сразу же … Но при этом детальное
+   проектирование каждого этапа запускается только после завершения предыдущего этапа»). **First level, at once:** every stage as a
+   draft (`name`, `works`, `ready`, `items`), confirmed one at a time; each adds one capability and works by itself even when the main
+   goal is not reached yet. Sign-in and the database are already in the node (its elements auth and data): a stage connects them,
+   never builds them. **Second level, one stage at a time:** only the current stage (the lowest `n` without `done`) is planned in
+   detail into steps, each one business feature of this stage with the lines `Stage: N` and `Serves: …` (skill `use-development-docs`);
+   `npm run check:product` refuses a step planned for a later stage. What stays out of every stage goes to `notNow`.
 6. **Write as you go,** each item as a `draft`; show the person what you wrote, item by item, with its number.
 7. **The first session of a new element** (a task from the core's main agent in your intake): there is no quiz yet. Put the
    task's words into your plan (`current-step.md`) as the vision draft, ask the first question — the vision: who it is for, what
@@ -139,8 +147,13 @@ The page puts a ready line into the terminal: «Product quiz, item S-03 «…»�
   something that used to be here».
 - **Closing a step** that served items: ask not «does it work» but «what promised in S-NN is now true», name the item and quote its
   acceptance; the summary in `steps-done/` keeps its `Serves:` line.
-- **A slice is done** when every scenario in it is done and its acceptance is true on the person's screen — proved by listing them,
-  never by «broadly ready».
+- **A stage is done** when its `ready` sign is true on the person's screen and every scenario it serves is done — proved by listing
+  them, never by «broadly ready». Only the person confirms a stage, in words, like an item: record `done: { date, said }` with their
+  words verbatim.
+- **Then back to the quiz before any new step** (owner of the node, 2026-10-23: «вновь вернуться в продуктовый Quiz для того чтобы
+  продолжить с планированием следующего глобального этапа»): what the finished stage taught may change the next one — show its draft
+  again, take the person's corrections, confirm it, and only then plan its steps. The core's quiz page shows which stage is current
+  and the steps of each stage.
 
 ## 7. Offering deep planning
 
@@ -150,8 +163,9 @@ a plan this will need rebuilding later; shall we describe it first?» Do not rep
 ## 8. Before you commit a quiz change
 
 `npm run check:product` — unique numbers, dependencies that exist and do not run in a circle, confirmed items with a date and words,
-`Serves:` lines of the steps that point at real items. It is not part of `prebuild`: a broken quiz must not stop the site from being
-deployed. A red line is fixed before the commit.
+`Serves:` lines of the steps that point at real items, stages in order with the person's words, and no step planned for a stage after
+the current one. It is not part of `prebuild`: a broken quiz must not stop the site from being deployed. A red line is fixed before
+the commit.
 
 ## Do not
 
@@ -159,4 +173,5 @@ deployed. A red line is fixed before the commit.
 - Add behaviour of the system nobody asked for (timers, polling, automatic links between elements) because the quiz «implies» it —
   ask first, in the words of what the person will see.
 - Copy the list of steps into the quiz, translate the quiz, or put people's personal data in it.
-- Plan twenty steps ahead: the quiz describes the product, the steps come one slice at a time.
+- Plan steps ahead: the quiz holds every stage (what works, by which sign); only the current stage gets its steps, and the next one
+  is planned in detail after the person says the current one works.
