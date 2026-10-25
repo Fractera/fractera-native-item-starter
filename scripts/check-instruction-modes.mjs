@@ -11,10 +11,14 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
+// 590-5: проходы строительства — у прохода дизайна и прохода текстов свой файл законов (мост кладёт его после build.md); разделы
+// «Design skill» и «Texts» переехали туда, в build.md остался раздел «Passes».
 const PLACE = {
   'CLAUDE.md': ['Process —', 'Two natures', 'On wake', 'Skills by group', 'Outbound A2A guard', 'Protocols', 'How you report'],
   '.claude/modes/build.md': ['Confirm the request first', 'Plan the checks before the work', 'Steps', 'Skills of the build session',
-    'Design skill', 'Page', 'Texts', 'Report what a person can see', 'Tree'],
+    'Passes', 'Page', 'Report what a person can see', 'Tree'],
+  '.claude/modes/build-design.md': ['The design pass', 'Design skill'],
+  '.claude/modes/build-texts.md': ['The texts pass', 'Texts'],
 }
 const problems = []
 const headings = {}
