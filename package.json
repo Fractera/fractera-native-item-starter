@@ -11,6 +11,7 @@
     "reply-core": "node scripts/ask-core.mjs --reply",
     "need": "node scripts/need.mjs",
     "pass": "node scripts/pass.mjs",
+    "design-skill": "node scripts/design-skill.mjs",
     "blocks:ids": "node scripts/check-block-ids.mjs --fix",
     "dev": "next dev",
     "build": "next build",
