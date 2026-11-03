@@ -1,7 +1,7 @@
 {
  "_": "Starting tree of a Fractera element (node step 462). Written by scripts/tree-manifest.mjs in fractera-custom-item-starter; checked by scripts/check-tree.mjs. Never edit by hand.",
  "template": "fractera-custom-item-starter",
- "after": "v0.1.30",
+ "after": "after v0.1.34",
  "files": [
   "app/.well-known/agent-card.json/route.ts",
   "app/[lang]/(guestLayer)/README.md",
@@ -311,6 +311,7 @@
   "lib/collection",
   "lib/content",
   "lib/content/blocks",
+  "lib/cron",
   "lib/db",
   "lib/design",
   "lib/domain",
@@ -410,6 +411,7 @@
   ".claude/skills/own-service-props-skills/skills/need-capability",
   ".claude/skills/own-service-props-skills/skills/node-elements-detection",
   ".claude/skills/own-service-props-skills/skills/own-service-props-detection",
+  ".claude/skills/own-service-props-skills/skills/schedule-cron-automations-calendar-reminders-recurring-and-one-time-tasks",
   ".claude/skills/own-service-props-skills/skills/telegram-channel",
   ".claude/skills/shadcn",
   "APP-CONFIG",
