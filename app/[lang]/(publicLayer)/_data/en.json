@@ -75,6 +75,17 @@
     },
     {
       "kind": "block-section-head",
+      "id": "power",
+      "title": "On by default, except Stripe",
+      "bid": "q0000"
+    },
+    {
+      "kind": "text-p",
+      "text": "Every native element arrives turned on, except Stripe, which waits for its keys. The node holds the switch of each.",
+      "bid": "q0001"
+    },
+    {
+      "kind": "block-section-head",
       "id": "hood",
       "title": "The twelve natives",
       "bid": "nb000"
@@ -139,6 +150,31 @@
     },
     {
       "kind": "block-section-head",
+      "id": "builder",
+      "title": "Your own builder comes with it",
+      "bid": "q0002"
+    },
+    {
+      "kind": "text-p",
+      "text": "Every element of the node comes with its own Claude Code agent and can get its own Telegram bot. When something in this element should change, write to its bot from your phone, and the agent updates the logic or the design.",
+      "bid": "q0003"
+    },
+    {
+      "kind": "text-p",
+      "text": "The agent works only in its element's folder and never reads the whole node, so each change costs fewer tokens. Your Claude Code subscription pays for it.",
+      "bid": "q0004"
+    },
+    {
+      "kind": "text-list",
+      "items": [
+        "The element's bot is connected in the core, on its «Telegram» page.",
+        "The agent returns a commit; you look at it in «Preview» and accept it or turn it down.",
+        "At the computer, the agent's terminal is in the core, in this element's «Build»."
+      ],
+      "bid": "q0005"
+    },
+    {
+      "kind": "block-section-head",
       "id": "credits",
       "title": "Open source",
       "bid": "nc000"
@@ -147,6 +183,31 @@
       "kind": "text-p",
       "text": "Built by Fractera for the [Lagrix](https://lagrix.dev) protocol. MIT license, the template is at [github.com/Fractera/fractera-native-item-starter](https://github.com/Fractera/fractera-native-item-starter).",
       "bid": "nc001"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "faq",
+      "title": "Questions and answers",
+      "bid": "q0006"
+    },
+    {
+      "kind": "block-faq",
+      "title": "Questions and answers",
+      "items": [
+        {
+          "q": "What is a native element?",
+          "a": "An element that comes with the core at the first start and serves the core and the other elements: sign-in, data, the stores, settings, design, blocks, payments."
+        },
+        {
+          "q": "Can a native element be removed?",
+          "a": "Sign-in, data and root can be replaced but not deleted."
+        },
+        {
+          "q": "Does a native element sell work to others?",
+          "a": "No. A native element has no working process and no payments of its own."
+        }
+      ],
+      "bid": "q0007"
     }
   ]
 }
