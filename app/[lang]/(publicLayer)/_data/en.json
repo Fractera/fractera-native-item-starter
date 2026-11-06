@@ -132,7 +132,7 @@
         ],
         [
           "Cache",
-          "The fast store, off by default"
+          "The fast store for the busy actions of applications"
         ]
       ],
       "bid": "nb001"
