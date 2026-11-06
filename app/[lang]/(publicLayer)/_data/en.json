@@ -76,12 +76,12 @@
     {
       "kind": "block-section-head",
       "id": "power",
-      "title": "On by default, except Stripe",
+      "title": "On by default, except Stripe and Redis",
       "bid": "q0000"
     },
     {
       "kind": "text-p",
-      "text": "Every native element arrives turned on, except Stripe, which waits for its keys. The node holds the switch of each.",
+      "text": "Every native element arrives turned on, except Stripe, which waits for its keys, and the fast store (Redis), which waits for an application that needs it. The node holds the switch of each.",
       "bid": "q0001"
     },
     {
