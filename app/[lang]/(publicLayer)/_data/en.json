@@ -1,11 +1,152 @@
 {
-  "title": "Reference native template",
-  "description": "The reference starter template of a Fractera native element.",
+  "title": "A native element of your node",
+  "description": "Native elements come with the core at the first start and serve the core and every other element: sign-in, the database, the stores, the memory, the settings, the design and the blocks. This is the template each of them is built from.",
   "keywords": "",
   "blocks": [
     {
-      "kind": "widget-static-reference-title",
-      "bid": "rf001"
+      "kind": "widget-static-native-landing",
+      "bid": "nw001"
+    },
+    {
+      "kind": "block-hero-centered",
+      "pill": "OpenSource Web4 agent & app starter kit",
+      "title": "A native element of your node",
+      "description": "Native elements come with the core at the first start and serve the core and every other element. This is the template each of them is built from.",
+      "cta": {
+        "label": "The twelve natives",
+        "href": "#hood"
+      },
+      "secondary": {
+        "label": "Open source",
+        "href": "#credits"
+      },
+      "bid": "nh001"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "route",
+      "title": "What a native element is",
+      "bid": "na000"
+    },
+    {
+      "kind": "text-h4",
+      "text": "It comes with the node",
+      "bid": "na001"
+    },
+    {
+      "kind": "text-p",
+      "text": "The installer puts every native element in place by its pinned tag at the first start.",
+      "bid": "na002"
+    },
+    {
+      "kind": "text-h4",
+      "text": "It serves the others",
+      "bid": "na003"
+    },
+    {
+      "kind": "text-p",
+      "text": "The core and the custom elements call its doors; it has no working process and takes no payments.",
+      "bid": "na004"
+    },
+    {
+      "kind": "text-h4",
+      "text": "It sees the whole node",
+      "bid": "na005"
+    },
+    {
+      "kind": "text-p",
+      "text": "Native elements open the stores with the node’s data key, each finding named by its element.",
+      "bid": "na006"
+    },
+    {
+      "kind": "text-h4",
+      "text": "It stays in its place",
+      "bid": "na007"
+    },
+    {
+      "kind": "text-p",
+      "text": "The core does not delete a native element or move its address; its code is open and yours to change.",
+      "bid": "na008"
+    },
+    {
+      "kind": "text-small",
+      "text": "Native elements are never sold and never join an outside network.",
+      "bid": "na009"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "hood",
+      "title": "The twelve natives",
+      "bid": "nb000"
+    },
+    {
+      "kind": "text-table",
+      "head": [
+        "Element",
+        "What it does"
+      ],
+      "rows": [
+        [
+          "Sign-in",
+          "Who came and with which roles"
+        ],
+        [
+          "Database",
+          "Each element its own tables, the deploy journal, the agents’ conversations"
+        ],
+        [
+          "Storage",
+          "Files and pictures with addresses that never change"
+        ],
+        [
+          "Vectors",
+          "Search by meaning"
+        ],
+        [
+          "Embeddings",
+          "The numbers of meaning, counted on this computer"
+        ],
+        [
+          "Graph",
+          "The points and roads of what the node knows"
+        ],
+        [
+          "Deep memory",
+          "What was said and kept, with reminders at a time"
+        ],
+        [
+          "CONFIG",
+          "The settings of every application"
+        ],
+        [
+          "Design",
+          "One look for the whole project"
+        ],
+        [
+          "Blocks",
+          "Ready sections for pages"
+        ],
+        [
+          "Stripe",
+          "Payments, turned on with its keys"
+        ],
+        [
+          "Cache",
+          "The fast store, off by default"
+        ]
+      ],
+      "bid": "nb001"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "credits",
+      "title": "Open source",
+      "bid": "nc000"
+    },
+    {
+      "kind": "text-p",
+      "text": "Built by Fractera for the [Lagrix](https://lagrix.dev) protocol. MIT license, the template is at [github.com/Fractera/fractera-native-item-starter](https://github.com/Fractera/fractera-native-item-starter).",
+      "bid": "nc001"
     }
   ]
 }
