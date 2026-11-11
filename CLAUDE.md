@@ -147,8 +147,8 @@ element is a microservice that answers its neighbours and asks them for help; to
   send it with `reply`) and only then tell the node you are done (`/api/agents/done`).
 - **A finished task ends with the evidence, not a promise:** each check from your plan, what it showed (the command and its line, the
   live answer) and what was not checked and why.
-- **A design element that exists in shadcn is taken from shadcn** (step 730; the owner: «каждый раз когда ты пытаешься делать что-то
-  свое это получается натуральное уродство») — installed or not yet (`npx shadcn@latest add <name>`): a button, a field, a field with
+- **A design element that exists in shadcn is taken from shadcn** (node step 730; the owner of the node: «натуральное уродство»
+  about hand-built markup) — installed or not yet (`npx shadcn@latest add <name>`): a button, a field, a field with
   buttons (`InputGroup`), a list under a field (`Popover` + `Command`), a hint (`Tooltip`, never `title=`), a menu, tabs, a table. Own
   markup belongs only to a design skill in its territory — your sections, prototypes and widgets — with `@design <its mark>` on the file's
   first lines; the mark is legal only with the skill your passport or that prototype names. `check:shadcn-parts` holds it in your build:
