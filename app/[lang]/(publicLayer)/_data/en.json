@@ -1,14 +1,14 @@
 {
   "title": "A native element of your node",
-  "description": "Native elements come with the core at the first start and serve the core and every other element: sign-in, the database, the stores, the memory, the settings, the design and the blocks. This is the template each of them is built from.",
+  "description": "Native elements come with the core at the first start and serve the core and every other element: sign-in, the database, the stores, the memory and the settings. This is the template each of them is built from.",
   "keywords": "",
-  "blocks": [
+  "body": [
     {
       "kind": "widget-static-native-landing",
       "bid": "nw001"
     },
     {
-      "kind": "block-hero-centered",
+      "kind": "section-hero-centered",
       "pill": "OpenSource Web4 agent & app starter kit",
       "title": "A native element of your node",
       "description": "Native elements come with the core at the first start and serve the core and every other element. This is the template each of them is built from.",
@@ -23,7 +23,7 @@
       "bid": "nh001"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "route",
       "title": "What a native element is",
       "bid": "na000"
@@ -74,7 +74,7 @@
       "bid": "na009"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "power",
       "title": "On by default, except Stripe and Redis",
       "bid": "q0000"
@@ -85,7 +85,7 @@
       "bid": "q0001"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "hood",
       "title": "The twelve natives",
       "bid": "nb000"
@@ -130,14 +130,6 @@
           "The settings of every application"
         ],
         [
-          "Design",
-          "One look for the whole project"
-        ],
-        [
-          "Blocks",
-          "Ready sections for pages"
-        ],
-        [
           "Stripe",
           "Payments, turned on with its keys"
         ],
@@ -149,7 +141,7 @@
       "bid": "nb001"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "builder",
       "title": "Your own builder comes with it",
       "bid": "q0002"
@@ -174,7 +166,7 @@
       "bid": "q0005"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "credits",
       "title": "Open source",
       "bid": "nc000"
@@ -185,18 +177,18 @@
       "bid": "nc001"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "faq",
       "title": "Questions and answers",
       "bid": "q0006"
     },
     {
-      "kind": "block-faq",
+      "kind": "section-faq",
       "title": "Questions and answers",
       "items": [
         {
           "q": "What is a native element?",
-          "a": "An element that comes with the core at the first start and serves the core and the other elements: sign-in, data, the stores, settings, design, blocks, payments."
+          "a": "An element that comes with the core at the first start and serves the core and the other elements: sign-in, data, the stores, settings, payments."
         },
         {
           "q": "Can a native element be removed?",
