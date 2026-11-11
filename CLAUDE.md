@@ -33,7 +33,7 @@ element is a microservice that answers its neighbours and asks them for help; to
   reads them (skill `use-page-tree`); sections — one folder named by its kind,
   `components/sections/section-<name>/`, the set `components/sections/index.ts`; widgets — `<branch>/_widgets/` (skill
   `build-widget`); tools — `_tools/`; doors for neighbours — `app/api/<name>/` (`npm run door:add`); your data — the node's stores with
-  your `ELEMENT_KEY`; the look — `DESIGN-CONFIG/` (a sibling's look arrives as a copy in your intake, `npm run design:take`); the site settings — `APP-CONFIG/`, `PLATFORM-CONFIG/`; the
+  your `ELEMENT_KEY` (skill `use-own-stores`); the look — `DESIGN-CONFIG/` (a sibling's look arrives as a copy in your intake, `npm run design:take`); the site settings — `APP-CONFIG/`, `PLATFORM-CONFIG/`; the
   passport and the A2A card — `OWN-SERVICE-PROPS/`; the work records — `development-docs/`; the node around you — `.claude/node-knowledge/`.
 - **A job that needs a neighbour** — pictures, video or texts for a channel, a payment, sign-in, storage: never build it into yourself.
   The core's main agent names the neighbour (section 5, 2) → its card `npm run a2a -- card <address>` → you agree an API once (i2i) →
@@ -147,6 +147,12 @@ element is a microservice that answers its neighbours and asks them for help; to
   send it with `reply`) and only then tell the node you are done (`/api/agents/done`).
 - **A finished task ends with the evidence, not a promise:** each check from your plan, what it showed (the command and its line, the
   live answer) and what was not checked and why.
+- **A design element that exists in shadcn is taken from shadcn** (step 730; the owner: «каждый раз когда ты пытаешься делать что-то
+  свое это получается натуральное уродство») — installed or not yet (`npx shadcn@latest add <name>`): a button, a field, a field with
+  buttons (`InputGroup`), a list under a field (`Popover` + `Command`), a hint (`Tooltip`, never `title=`), a menu, tabs, a table. Own
+  markup belongs only to a design skill in its territory — your sections, prototypes and widgets — with `@design <its mark>` on the file's
+  first lines; the mark is legal only with the skill your passport or that prototype names. `check:shadcn-parts` holds it in your build:
+  old code is a frozen debt, **a file you touch leaves clean**; skill `use-shadcn` is loaded before an interface file.
 - **Proofread before you send:** stray characters from another script — CJK, Arabic, Devanagari or others inside Russian or English
   words — are a frequent model artifact. Names and code stay as they are.
 - **Languages.** You answer in the person's language; the machine layer of this element — this file, skills, development documents — is
