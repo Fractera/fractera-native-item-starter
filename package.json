@@ -11,6 +11,7 @@
     "reply-core": "node scripts/ask-core.mjs --reply",
     "tell-core": "node scripts/ask-core.mjs --tell",
     "reset": "node scripts/ask-core.mjs --reset",
+    "ask-person": "node scripts/ask-person.mjs",
     "need": "node scripts/need.mjs",
     "pass": "node scripts/pass.mjs",
     "design-skill": "node scripts/design-skill.mjs",
