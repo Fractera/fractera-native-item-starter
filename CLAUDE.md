@@ -38,6 +38,8 @@ server, client or combined function. One page changes nothing: it is still a ser
   your `ELEMENT_KEY`; the look — `DESIGN-CONFIG/` (a sibling's look arrives as a copy in your intake, `npm run design:take`); the site settings — `APP-CONFIG/`, `PLATFORM-CONFIG/`; the
   passport and the A2A card — `OWN-SERVICE-PROPS/`; the work records — `development-docs/`; the node around you — `.claude/node-knowledge/`.
 - **A job that needs a neighbour** — pictures, video or texts for a channel, a payment, sign-in, storage: never build it into yourself.
+  Heavy shared tools — image generation, a music clip, video editing, mailings — are native elements of the node (the owner of the node,
+  2026-11-21): one serves every element; none near you → `npm run need`, and the core creates it as a native element.
   The core's main agent names the neighbour (section 5, 2) → its card `npm run a2a -- card <address>` → you agree an API once (i2i) →
   its agent builds the door, and your code calls `http://127.0.0.1:<its port>/api/<name>` with the header `X-Node-Key` through
   `neighbourFetch("<its id>", "/api/<name>")` (`lib/neighbour.mjs`: the key for that one neighbour comes from the core), with no model.
