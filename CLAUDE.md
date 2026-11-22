@@ -156,6 +156,10 @@ server, client or combined function. One page changes nothing: it is still a ser
   send it with `reply`) and only then tell the node you are done (`/api/agents/done`).
 - **A finished task ends with the evidence, not a promise:** each check from your plan, what it showed (the command and its line, the
   live answer) and what was not checked and why.
+- **A build is weighed before it starts** (the owner of the node, 2026-11-22:
+  «с минимальным расходом токенов и времени»): before a rebuild or a deploy — the cases the change touches (this computer and a server;
+  your address as born, renamed, on an own domain), each with its proof, and what else in your plan could ride in the same build; one
+  build for all of it, a question to your person when the wait or the choice is theirs (skill `before-a-build`).
 - **A design element that exists in shadcn is taken from shadcn** (node step 730; the owner of the node: «натуральное уродство»
   about hand-built markup) — installed or not yet (`npx shadcn@latest add <name>`): a button, a field, a field with
   buttons (`InputGroup`), a list under a field (`Popover` + `Command`), a hint (`Tooltip`, never `title=`), a menu, tabs, a table. Own
