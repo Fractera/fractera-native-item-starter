@@ -11,6 +11,7 @@
     "ask-core": "node scripts/ask-core.mjs",
     "reply-core": "node scripts/ask-core.mjs --reply",
     "tell-core": "node scripts/ask-core.mjs --tell",
+    "deploy:self": "node scripts/deploy-self.mjs",
     "reset": "node scripts/ask-core.mjs --reset",
     "ask-person": "node scripts/ask-person.mjs",
     "browser": "node scripts/browser.mjs",
