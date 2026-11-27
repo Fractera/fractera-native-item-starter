@@ -104,3 +104,6 @@ next-env.d.ts
 
 # 315: font files copied from @fontsource packages before each build (scripts/local-fonts.mjs)
 public/fonts/
+
+# 861-3: the quiz PDF an element reads itself (npm run quiz:pdf) — a copy, never versioned
+development-docs/product/quiz.pdf
