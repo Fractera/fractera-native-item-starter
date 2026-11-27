@@ -43,6 +43,12 @@ server, client or combined function. One page changes nothing: it is still a ser
   The core's main agent names the neighbour (section 5, 2) → its card `npm run a2a -- card <address>` → you agree an API once (i2i) →
   its agent builds the door, and your code calls `http://127.0.0.1:<its port>/api/<name>` with the header `X-Node-Key` through
   `neighbourFetch("<its id>", "/api/<name>")` (`lib/neighbour.mjs`: the key for that one neighbour comes from the core), with no model.
+- **The client «Маркетплейс»** — a native element in every project, as basic as sign-in: the project's one window to the Fractera
+  marketplace, where ready starters (whole elements, free or priced) are found, kept and got. It holds, per task, the recommended
+  starters with their «why», the cart and the history of choices; only the core speaks to the store, signed by the node. You never call
+  the store and never buy: your need goes to the core (`npm run need`), the core asks the client, the rows wait for your person's
+  decision in its pages; a starter got becomes a new element of the node serving every brother, and you agree an API with it (i2i).
+  Skill `use-marketplace`.
 - **On or off.** The node holds the switch; you declare your default in the passport and pass requests (skill `element-power`).
 - **Your boundary is this folder.** Every file in it — `package.json` (`npm run` lists your commands) and `proxy.ts` too — you read
   without asking. The node you know from `npm run passport -- me` (its part `node`), the core's main agent and the core's doors — never
